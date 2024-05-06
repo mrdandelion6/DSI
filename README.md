@@ -14,5 +14,5 @@ This repo contains the notes I've made while receiving training at the SUDS boot
 - [3b1b CNNs](https://www.youtube.com/watch?v=KuXjwB4LzSA)
 
 ### Other
-- [Learn to Code](): This is a link to a repository I made with comprehensive notes on coding in the following programming languages: C, Bash, JavaScript, and some others I haven't made much notes for.
+- [Learn to Code](https://github.com/mrdandelion6/Learn-to-Code): This is a link to a repository I made with comprehensive notes on coding in the following programming languages: C, Bash, JavaScript, and some others I haven't made much notes for.
 
