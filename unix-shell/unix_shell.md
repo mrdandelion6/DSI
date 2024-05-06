@@ -54,3 +54,8 @@ echo $result
 ## Expansion & Variables
 
 ### Brace Expansion
+Used to make arbitrary strings.
+
+
+## Shell Scripts
+Have .sh extension. Executable shell scripts files. Make sure to do the command: `chmod u+x myscript.sh` to make your script executable.
