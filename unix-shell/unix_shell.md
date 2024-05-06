@@ -59,3 +59,44 @@ Used to make arbitrary strings.
 
 ## Shell Scripts
 Have .sh extension. Executable shell scripts files. Make sure to do the command: `chmod u+x myscript.sh` to make your script executable.
+
+## Executables
+Can execute commands / programs. If you type a command in directly into bash like this:
+
+```
+command
+```
+
+ your system looks for the command in directories in the PATH environment variable. Those directories are typically in `/user/bin/` and `/usr/local/bin`.
+
+To run executables in a specific directory (ones not in that PATH that you made perhaps), then you must provide the full path instead of just the executable name. For example if you have a shell script named myscript.sh in your pwd, you would type the following:
+
+```
+./myscript.sh
+```
+
+## Variables
+
+
+## Functions
+
+Two syntax for specifying functions in bash:
+
+With function keyword:
+```
+function greet() {
+    echo "hello"
+}
+```
+
+Without function keyword:
+```
+greet() {
+    echo "hello"
+}
+```
+
+Strangely enough, it actually doesn't matter whether we use this keyword or not. However using the function keyword is not part of the POSIX shell standard.
+
+## Shebangs
+One example is using #!/bin/bash. You put this at the start of a shell script to tell the system to execute the script with bash.
