@@ -39,13 +39,23 @@ Two main kinds
 - Type bash to start a subshell. This will be in the same shell. To exit type "exit" or press Ctrl + D.
 
 ## Pipelining
+You can pipe one program's output to anothers input using `|`. Here is an example of piping output from `program1` as input for `program2`
+```
 - program1 | program2
-Redirect the output of one program as the input of another. Examples,
-- cut -d ',' -f 1 parking_tickets.csv | sort : grab the first field of each line and sort it
-- cut -d ',' -f 4 parking_tickets.csv | sort | uniq | grep FIRE : grab the fourth field of each line, sort them, make the list unique, and display anything from that list that contains "FIRE"
+```
+
+Now we show some specific examples. The following code grabs the first field of each line in a CSV file `parking_tickets.csv` and sorts it into a list before printing the results to `stdout` (stdout stands for standard output, which is usually the client console/terminal).
+```
+cut -d ',' -f 1 parking_tickets.csv | sort
+```
+
+The following code grabs the fourth field of each line from a CSV, sorts them, makes the sorted list unique, then filters the list to have only lines which contain the  word "FIRE", and lastly prints it to `stdout`.
+```
+cut -d ',' -f 4 parking_tickets.csv | sort | uniq | grep FIRE
+```
 
 ## Arithmetic
-Use $(( )) around any math. Example:
+Use `$(( ))` around any math. Example:
 ```
 result=$((4 + 10))
 echo $result
@@ -54,8 +64,7 @@ echo $result
 ## Expansion & Variables
 
 ### Brace Expansion
-Used to make arbitrary strings.
-
+Used to make arbitrary strings. I'll add notes for this later.
 
 ## Shell Scripts
 Have .sh extension. Executable shell scripts files. Make sure to do the command: `chmod u+x myscript.sh` to make your script executable.
@@ -67,16 +76,23 @@ Can execute commands / programs. If you type a command in directly into bash lik
 command
 ```
 
- your system looks for the command in directories in the PATH environment variable. Those directories are typically in `/user/bin/` and `/usr/local/bin`.
+ Note that the OS looks for the command in directories in the PATH environment variable. Those directories are typically in `/user/bin/` and `/usr/local/bin` for UNIX systems.
 
-To run executables in a specific directory (ones not in that PATH that you made perhaps), then you must provide the full path instead of just the executable name. For example if you have a shell script named myscript.sh in your pwd, you would type the following:
+If you want to run executables in a specific directory (ones not in that PATH that you made perhaps), then you must provide the full path instead of just the executable name. For example if you have a shell script named myscript.sh in your `pwd` (present working directory), you would type the following:
 
 ```
 ./myscript.sh
 ```
 
-## Variables
+Note the `./` specifies that the path of `myscript.sh` is in the `pwd`.
 
+
+## Variables
+I'll make some notes on this later. Here is a basic usage example:
+```
+name="faisal"
+echo "hello $name"
+```
 
 ## Functions
 
@@ -98,5 +114,12 @@ greet() {
 
 Strangely enough, it actually doesn't matter whether we use this keyword or not. However using the function keyword is not part of the POSIX shell standard.
 
+Note that if you want to use functions directly in command line without having to execute scripts in which they are defined, you have to source them as follows:
+```
+source path/to/script/myscript.sh
+funct_x
+```
+The above assumes `funct_x` is some function defined in myscript.sh. This source will only last for the shell session. If you want functions to last forever then you should define them in a file that is sourced by default, such as `.bashrc`.
+
 ## Shebangs
-One example is using #!/bin/bash. You put this at the start of a shell script to tell the system to execute the script with bash.
+I'll make more notes on this later but one example is using #!/bin/bash. You put this at the start of a shell script to tell the system to execute the script with bash.
