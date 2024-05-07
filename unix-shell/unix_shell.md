@@ -41,7 +41,7 @@ Two main kinds
 ## Pipelining
 You can pipe one program's output to anothers input using `|`. Here is an example of piping output from `program1` as input for `program2`
 ```
-- program1 | program2
+program1 | program2
 ```
 
 Now we show some specific examples. The following code grabs the first field of each line in a CSV file `parking_tickets.csv` and sorts it into a list before printing the results to `stdout` (stdout stands for standard output, which is usually the client console/terminal).
